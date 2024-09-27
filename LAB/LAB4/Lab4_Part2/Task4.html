@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lab 4 : Task 4</title>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.1.1.js"
+        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.1/tufte.css" />
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        #container {
+            display: block;
+        }
+
+        #draw_buttons {
+            float: left;
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            var canvas = document.getElementById("myCanvas");
+            var txt = canvas.getContext("2d");
+            txt.fillStyle = "#f00";
+            txt.strokeStyle = "#000";
+            txt.lineWidth = 3;
+            
+            $("#button_draw_triangle").click(function () {
+                txt.fillStyle = "#f00";
+                txt.strokeStyle = "#000";
+                txt.lineWidth = 3;
+                txt.beginPath();
+                txt.moveTo(60, 240);
+                txt.lineTo(240, 240);
+                txt.lineTo(150, 60);
+                txt.fill();
+                txt.stroke();
+            });
+
+            $("#button_draw_rotated_triangle").click(function () {
+                txt.fillStyle = "#f00";
+                txt.strokeStyle = "#000";
+                txt.lineWidth = 3;
+                txt.translate(canvas.width / 2, canvas.height / 2);
+                txt.rotate(Math.PI / 4);
+                txt.beginPath();
+                txt.moveTo(-90, 90);
+                txt.lineTo(90, 90);
+                txt.lineTo(0, -90);
+
+                txt.closePath();
+                txt.fill();
+                txt.stroke();
+            });
+
+            $("#button_clear_canvas").click(function () {
+                canvas.width = canvas.width;
+                canvas.height = canvas.height;
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h2>Manipulate the Canvas</h2>
+    <canvas id="myCanvas" width="300" height="300" style="border: 1px solid #000000"></canvas>
+
+    <div id="draw_buttons">
+        <button id="button_draw_triangle">Draw Triangle</button>
+        <button id="button_draw_rotated_triangle">Draw Rotated Triangle</button>
+        <button id="button_clear_canvas">Clear Canvas</button>
+    </div>
+</body>
+
+</html>

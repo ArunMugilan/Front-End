@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text field events</title>
+	<style>
+		input[type="text"] {
+			padding: 10px;
+			font-size: 20px;
+			border: 2px solid black;
+			border-radius: 5px;
+			transition: all 0.5s ease-in-out;
+		}
+
+		input[type="text"]:focus {
+			background-color: lightblue;
+			box-shadow: 0px 0px 10px lightblue;
+			border-color: lightblue;
+		}
+
+		input[type="text"]:valid {
+			border-color: green;
+		}
+
+		input[type="text"]:invalid {
+			border-color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<label for="textfield">Enter your name:</label>
+	<input type="text" id="textfield" placeholder="Your name here"
+	onchange="this.style.backgroundColor='yellow'"
+	onfocus="this.placeholder=''"
+	onblur="this.placeholder='Your name here'">
+
+</body>
+</html>
